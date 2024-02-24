@@ -25,8 +25,14 @@ function tambah($data) {
     $email = htmlspecialchars($data["email"]);
     $img = htmlspecialchars($data["img"]);
     $pegawai = htmlspecialchars($data["pegawai"]);
+    $alamat = htmlspecialchars($data["alamat"]);
+    $mapel = htmlspecialchars($data["mapel"]);
+    $ijazah = htmlspecialchars($data["ijazah"]);
+    $niy = htmlspecialchars($data["niy"]);
+    $tglmasuk = htmlspecialchars($data["tglmasuk"]);
+    $tglmutasi = htmlspecialchars($data["tglmutasi"]);
 
-    $query = "INSERT INTO karyawan VALUES ('', '$nama', '$jabatan', '$tl', '$email', '$img', '$pegawai')";
+    $query = "INSERT INTO karyawan VALUES ('', '$nama', '$jabatan', '$tl', '$email', '$img', '$pegawai', '$alamat', '$mapel', '$ijazah', '$niy', '$tglmasuk', '$tglmutasi')";
    
     if (mysqli_query($conn, $query)) {
             echo "<article>Berhasil Ditambahkan! <a href='index.php'><button>Cek Daftar Karyawan</button></a></article>";
@@ -49,8 +55,14 @@ function edit($data) {
     $email = htmlspecialchars($data["email"]);
     $img = htmlspecialchars($data["img"]);
     $pegawai = htmlspecialchars($data["pegawai"]);
+    $alamat = htmlspecialchars($data["alamat"]);
+    $mapel = htmlspecialchars($data["mapel"]);
+    $ijazah = htmlspecialchars($data["ijazah"]);
+    $niy = htmlspecialchars($data["niy"]);
+    $tglmasuk = htmlspecialchars($data["tglmasuk"]);
+    $tglmutasi = htmlspecialchars($data["tglmutasi"]);
 
-    $query = "UPDATE karyawan SET nama='$nama', jabatan='$jabatan', tl='$tl', email='$email', img='$img', pegawai='$pegawai' WHERE id='$id'";
+    $query = "UPDATE karyawan SET nama='$nama', jabatan='$jabatan', tl='$tl', email='$email', img='$img', pegawai='$pegawai', alamat='$alamat', mapel='$mapel', ijazah='$ijazah', niy='$niy', tglmasuk='$tglmasuk', tglmutasi='$tglmutasi' WHERE id='$id'";
     
     if (mysqli_query($conn, $query)) {
             header("Location: index.php");;

@@ -78,6 +78,34 @@
                 <td class="p-table">Status Kepegawaian</td>
                 <td class="p-table"><?= $karyawan["pegawai"] ?></td>
             </tr>
+            <tr>
+                <td class="p-table">Status Kepegawaian</td>
+                <td class="p-table"><?= $karyawan["pegawai"] ?></td>
+            </tr>
+            <tr>
+                <td class="p-table">Alamat</td>
+                <td class="p-table"><?= $karyawan["alamat"] ?></td>
+            </tr>
+            <tr>
+                <td class="p-table">Mengajar Mapel</td>
+                <td class="p-table"><?= $karyawan["mapel"] ?></td>
+            </tr>
+            <tr>
+                <td class="p-table">Ijazah</td>
+                <td class="p-table"><?= $karyawan["ijazah"] ?></td>
+            </tr>
+            <tr>
+                <td class="p-table">NIY</td>
+                <td class="p-table"><?= $karyawan["niy"] ?></td>
+            </tr>
+            <tr>
+                <td class="p-table">Tanggal Masuk</td>
+                <td class="p-table"><?= $karyawan["tglmasuk"] ?></td>
+            </tr>
+            <tr>
+                <td class="p-table">Tanggal Mutasi</td>
+                <td class="p-table"><?= $karyawan["tglmutasi"] ?></td>
+            </tr>
             <?php endforeach ?>
             <?php $nomor++ ?>
         </tbody>

@@ -29,20 +29,20 @@
 <body class="container">
     <br>
     <nav>
-    <ul>
-        <li><strong>Aplikasi</strong></li>
-    </ul>
-    <ul>
-        <li><a href="index.php">Pegawai</a></li>
-        <li><a href="add.php">Tambah</a></li>
-        <?php
-        if (isset($_SESSION["login"])) {
-            echo "<li><button class='secondary'><a class='contrast' href='signout.php'>Log Out</button></a></li>";
-        } else {
-            echo "<li><button class='secondary'><a class='contrast' href='signin.php'>Log In</button></a></li>";
-        }
-        ?>
-    </ul>
+        <ul>
+            <li><strong>Aplikasi</strong></li>
+        </ul>
+        <ul>
+            <li><a class="contrast" href="index.php">Pegawai</a></li>
+            <li><a class="contrast" href="add.php">Tambah</a></li>
+            <?php
+            if (isset($_SESSION["login"])) {
+                echo "<li><button class='secondary'><a class='contrast' href='signout.php'>Log Out</button></a></li>";
+            } else {
+                echo "<li><button class='secondary'><a class='contrast' href='signin.php'>Log In</button></a></li>";
+            }
+            ?>
+        </ul>
     </nav>
     <br>
     <h1>Daftar Pegawai</h1>
@@ -66,7 +66,7 @@
                 <th class="p-table table" scope="col">No</th>
                 <th class="p-table tablenama" scope="col">Nama</th>
                 <th class="p-table" scope="col">Jabatan</th>
-                <th class="p-table table" scope="col">Aksi</th>
+                <th class="p-table aksi-table" scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -75,7 +75,7 @@
                 <th class="table" scope="row"><?= $nomorKaryawanGuru ?></th>
                 <td class="tablenama"><?= $karyawan["nama"] ?></td>
                 <td><?= $karyawan["jabatan"] ?></td>
-                <td class="table"><a href="detail.php?id=<?= $karyawan["id"] ?>"><button class="btn-small">Detail</button></a></td>
+                <td><a href="detail.php?id=<?= $karyawan["id"] ?>"><button class="btn-small">Detail</button></a></td>
             </tr>
             <?php $nomorKaryawanGuru++ ?>
             <?php endforeach ?>
@@ -91,7 +91,7 @@
                 <th class="p-table table" scope="col">No</th>
                 <th class="p-table tablenama" scope="col">Nama</th>
                 <th class="p-table" scope="col">Jabatan</th>
-                <th class="p-table table" scope="col">Aksi</th>
+                <th class="p-table aksi-table" scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -100,7 +100,7 @@
                 <th class="table" scope="row"><?= $nomorKaryawanStaff ?></th>
                 <td class="tablenama"><?= $karyawan["nama"] ?></td>
                 <td><?= $karyawan["jabatan"] ?></td>
-                <td class="table"><a href="detail.php?id=<?= $karyawan["id"] ?>"><button class="btn-small">Detail</button></a></td>
+                <td><a href="detail.php?id=<?= $karyawan["id"] ?>"><button class="btn-small">Detail</button></a></td>
             </tr>
             <?php $nomorKaryawanStaff++ ?>
             <?php endforeach ?>
@@ -116,7 +116,7 @@
                 <th class="p-table table" scope="col">No</th>
                 <th class="p-table tablenama" scope="col">Nama</th>
                 <th class="p-table" scope="col">Jabatan</th>
-                <th class="p-table table" scope="col">Aksi</th>
+                <th class="p-table aksi-table" scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -125,7 +125,7 @@
                 <th class="table" scope="row"><?= $nomorKaryawanMutasi ?></th>
                 <td class="tablenama"><?= $karyawan["nama"] ?></td>
                 <td><?= $karyawan["jabatan"] ?></td>
-                <td class="table"><a href="detail.php?id=<?= $karyawan["id"] ?>"><button class="btn-small">Detail</button></a></td>
+                <td><a href="detail.php?id=<?= $karyawan["id"] ?>"><button class="btn-small">Detail</button></a></td>
             </tr>
             <?php $nomorKaryawanMutasi++ ?>
             <?php endforeach ?>
@@ -133,5 +133,7 @@
     </table>
     <p>Ditemukan <?= $nomorKaryawanMutasi - 1 ?> Data <a href="exportcsv.php?pegawai=Mutasi"><button class="btn-small secondary">Export CSV</button></a></p>
     </div>
+    <hr>
+    <p>Made by <a href="http://danarandco.my.id" target="_blank">dnr</a></p><br>
 </body>
 </html>

@@ -61,6 +61,29 @@ require "functions.php";
                 <option value="Mutasi">Mutasi</option>
             </select>
         </div>
+        <div>
+            <label for="addAlamat">Alamat</label>
+            <input name="alamat" type="text" id="addAlamat">
+        </div>
+        <div>
+            <label for="addMapel">Mengajar Mapel</label>
+            <input name="mapel" type="text" id="addMapel">
+        </div>
+        <div>
+            <label for="addIjazah">Ijazah</label>
+            <input name="ijazah" type="text" id="addIjazah">
+        </div>
+        <div>
+            <label for="addNIY">NIY</label>
+            <input name="niy" type="text" id="addNIY">
+        <div>
+            <label for="addTglmasuk">Tanggal Masuk</label>
+            <input name="tglmasuk" type="text" id="addTglmasuk"?>
+        </div>
+        <div>
+            <label for="addTglmutasi">Tanggal Mutasi</label>
+            <input name="tglmutasi" type="text" id="addTglmutasi"?>
+        </div>
         <br>
         <button type="submit" name="submit">Simpan</button>
     </form>

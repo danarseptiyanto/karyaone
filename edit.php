@@ -69,6 +69,30 @@ $karyawans = query("SELECT * FROM karyawan WHERE id = $id");
                 <option value="Mutasi">Mutasi</option>
             </select>
         </div>
+        <div>
+            <label for="addAlamat">Alamat</label>
+            <input name="alamat" type="text" id="addAlamat" value="<?=$karyawan["alamat"] ?>">
+        </div>
+        <div>
+            <label for="addMapel">Mengajar Mapel</label>
+            <input name="mapel" type="text" id="addMapel" value="<?=$karyawan["mapel"] ?>">
+        </div>
+        <div>
+            <label for="addIjazah">Ijazah</label>
+            <input name="ijazah" type="text" id="addIjazah" value="<?=$karyawan["ijazah"] ?>">
+        </div>
+        <div>
+            <label for="addNIY">NIY</label>
+            <input name="niy" type="text" id="addNIY" value="<?=$karyawan["niy"] ?>">
+        </div>
+        <div>
+            <label for="addTglmasuk">Tanggal Masuk</label>
+            <input name="tglmasuk" type="text" id="addTglmasuk" value="<?=$karyawan["tglmasuk"] ?>">
+        </div>
+        <div>
+            <label for="addTglmutasi">Tanggal Mutasi</label>
+            <input name="tglmutasi" type="text" id="addTglmutasi" value="<?=$karyawan["tglmutasi"] ?>">
+        </div>
         <br>
         <button type="submit" name="submit">Simpan</button>
         <?php endforeach ?>
