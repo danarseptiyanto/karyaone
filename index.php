@@ -57,15 +57,16 @@
         <article>Hasil untuk pencarian <b><?= $keyword ?></b></article>
         <?php } ?>
     </div>
-    <h4>Guru</h4>
+    <h4 class="m-none">Guru</h4>
     <div style="overflow-x: auto;">
-    <table class="striped">
+    <table
+      class="striped">
         <thead>
             <tr>
-            <th class="table" scope="col">No</th>
-            <th class="tablenama" scope="col">Nama</th>
-            <th scope="col">Jabatan</th>
-            <th class="table" scope="col">Aksi</th>
+                <th class="p-table table" scope="col">No</th>
+                <th class="p-table tablenama" scope="col">Nama</th>
+                <th class="p-table" scope="col">Jabatan</th>
+                <th class="p-table table" scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -80,15 +81,17 @@
             <?php endforeach ?>
         </tbody>
     </table>
-    <h4>Staff</h4>
+    <p>Ditemukan <?= $nomorKaryawanGuru - 1 ?> Data <a href="exportcsv.php?pegawai=Guru"><button class="btn-small secondary">Export CSV</button></a></p>
+    <br>
+    <h4 class="m-none">Staff</h4>
     <div style="overflow-x: auto;">
     <table class="striped">
         <thead>
             <tr>
-            <th class="table" scope="col">No</th>
-            <th class="tablenama" scope="col">Nama</th>
-            <th scope="col">Jabatan</th>
-            <th class="table" scope="col">Aksi</th>
+                <th class="p-table table" scope="col">No</th>
+                <th class="p-table tablenama" scope="col">Nama</th>
+                <th class="p-table" scope="col">Jabatan</th>
+                <th class="p-table table" scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -103,15 +106,17 @@
             <?php endforeach ?>
         </tbody>
     </table>
-    <h4>Guru & Staff Mutasi</h4>
+    <p>Ditemukan <?= $nomorKaryawanStaff - 1 ?> Data <a href="exportcsv.php?pegawai=Staff"><button class="btn-small secondary">Export CSV</button></a></p>
+    <br>
+    <h4 class="m-none">Guru & Staff Mutasi</h4>
     <div style="overflow-x: auto;">
     <table class="striped">
         <thead>
             <tr>
-            <th class="table" scope="col">No</th>
-            <th class="tablenama" scope="col">Nama</th>
-            <th scope="col">Jabatan</th>
-            <th class="table" scope="col">Aksi</th>
+                <th class="p-table table" scope="col">No</th>
+                <th class="p-table tablenama" scope="col">Nama</th>
+                <th class="p-table" scope="col">Jabatan</th>
+                <th class="p-table table" scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -126,7 +131,7 @@
             <?php endforeach ?>
         </tbody>
     </table>
-    <a href="exportcsv.php">export</a>
+    <p>Ditemukan <?= $nomorKaryawanMutasi - 1 ?> Data <a href="exportcsv.php?pegawai=Mutasi"><button class="btn-small secondary">Export CSV</button></a></p>
     </div>
 </body>
 </html>

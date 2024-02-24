@@ -49,8 +49,8 @@
     <table class="striped">
         <thead>
             <tr>
-            <th scope="col">Judul</th>
-            <th scope="col">Detail</th>
+            <th class="p-table" scope="col">Judul</th>
+            <th class="p-table" scope="col">Detail</th>
             </tr>
         </thead>
         <article>
@@ -59,30 +59,30 @@
         <tbody>
             <?php foreach($karyawans as $karyawan) : ?> 
             <tr>
-                <td style="padding: 20px">Nama Lengkap</td>
-                <td style="padding: 20px"><?= $karyawan["nama"] ?></td>
+                <td class="p-table">Nama Lengkap</td>
+                <td class="p-table"><?= $karyawan["nama"] ?></td>
             </tr>
             <tr>
-                <td style="padding: 20px">Jabatan</td>
-                <td style="padding: 20px"><?= $karyawan["jabatan"] ?></td>
+                <td class="p-table">Jabatan</td>
+                <td class="p-table"><?= $karyawan["jabatan"] ?></td>
             </tr>
             <tr>
-                <td style="padding: 20px">Tanggal Lahir</td>
-                <td style="padding: 20px"><?= $karyawan["tl"] ?></td>
+                <td class="p-table">Tanggal Lahir</td>
+                <td class="p-table"><?= $karyawan["tl"] ?></td>
             </tr>
             <tr>
-                <td style="padding: 20px">Email</td>
-                <td style="padding: 20px"><?= $karyawan["email"] ?></td>
+                <td class="p-table">Email</td>
+                <td class="p-table"><?= $karyawan["email"] ?></td>
             </tr>
             <tr>
-                <td style="padding: 20px">Status Kepegawaian</td>
-                <td style="padding: 20px"><?= $karyawan["pegawai"] ?></td>
+                <td class="p-table">Status Kepegawaian</td>
+                <td class="p-table"><?= $karyawan["pegawai"] ?></td>
             </tr>
             <?php endforeach ?>
             <?php $nomor++ ?>
         </tbody>
     </table>
-    <a href="edit.php?id=<?= $karyawans[0]["id"] ?>""><button>Ubah</button></a>
+    <a style="margin-right: 10px;" href="edit.php?id=<?= $karyawans[0]["id"] ?>""><button>Ubah</button></a>
     <a href="delete.php?id=<?= $karyawans[0]["id"] ?>"><button class="secondary">Hapus</button></a>
     
     <br>

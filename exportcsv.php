@@ -2,7 +2,9 @@
 
 require "functions.php";
 
-$sql = "SELECT * FROM karyawan WHERE img = 'image2.jpg'";
+$pegawai = $_GET["pegawai"];
+
+$sql = "SELECT * FROM karyawan WHERE pegawai = '$pegawai'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
