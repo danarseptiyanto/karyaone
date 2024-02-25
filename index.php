@@ -17,34 +17,34 @@
         $keyword = $_GET["keyword"];
     }
 ?>
-<html>
+<html data-theme="dark">
 <head>
-    <title>Document</title>
+    <title>Manajemen Karyawan</title>
     <link rel="stylesheet" href="style.css">
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.3/css/pico.min.css"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.3/css/pico.min.css"/>
 </head>
-<body class="container">
+<body>
+    <div style="background-color: #161B23;">
     <br>
-    <nav>
+    <nav class="container">
         <ul>
-            <li><strong>Aplikasi</strong></li>
+            <li><strong><i class="ri-share-forward-box-line"></i> Employee</strong></li>
         </ul>
         <ul>
-            <li><a class="contrast" href="index.php">Pegawai</a></li>
-            <li><a class="contrast" href="add.php">Tambah</a></li>
+            <li><a class="contrast" href="index.php"><i class="ri-list-check-2"></i> Pegawai</a></li>
+            <li><a class="contrast" href="add.php"><i class="ri-menu-add-line"></i> Tambah</a></li>
             <?php
             if (isset($_SESSION["login"])) {
-                echo "<li><button class='secondary'><a class='contrast' href='signout.php'>Log Out</button></a></li>";
+                echo "<li><button><a class='contrast' href='signout.php'><i style='padding: 0 3 0 3' class='ri-logout-box-line'></i></button></a></li>";
             } else {
-                echo "<li><button class='secondary'><a class='contrast' href='signin.php'>Log In</button></a></li>";
+                echo "<li><button><a class='contrast' href='signin.php'><i style='padding: 0 3 0 3' class='ri-login-box-line'></i></button></a></li>";
             }
             ?>
         </ul>
     </nav>
     <br>
+    <div class="container">
     <h1>Daftar Pegawai</h1>
     <form action="" method="GET">
         <div style="display: flex; gap: 15px;">
@@ -52,11 +52,15 @@
             <button style="width: 100px;" type="submit" name="cari">Cari</button>
         </div>
     </form>
+    </div>
+    <hr>
+    </div>
     <div>
         <?php if (isset($_GET["cari"])) { ?>
         <article>Hasil untuk pencarian <b><?= $keyword ?></b></article>
         <?php } ?>
     </div>
+    <div class="container">
     <h4 class="m-none">Guru</h4>
     <div style="overflow-x: auto;">
     <table
@@ -81,7 +85,7 @@
             <?php endforeach ?>
         </tbody>
     </table>
-    <p>Ditemukan <?= $nomorKaryawanGuru - 1 ?> Data <a href="exportcsv.php?pegawai=Guru"><button class="btn-small secondary">Export CSV</button></a></p>
+    <p>Ditemukan <?= $nomorKaryawanGuru - 1 ?> Data <a href="exportcsv.php?pegawai=Guru"><button style="margin-left: 7;" class="btn-small secondary">Export CSV</button></a></p>
     <br>
     <h4 class="m-none">Staff</h4>
     <div style="overflow-x: auto;">
@@ -106,7 +110,7 @@
             <?php endforeach ?>
         </tbody>
     </table>
-    <p>Ditemukan <?= $nomorKaryawanStaff - 1 ?> Data <a href="exportcsv.php?pegawai=Staff"><button class="btn-small secondary">Export CSV</button></a></p>
+    <p>Ditemukan <?= $nomorKaryawanStaff - 1 ?> Data <a href="exportcsv.php?pegawai=Staff"><button style="margin-left: 7;" class="btn-small secondary">Export CSV</button></a></p>
     <br>
     <h4 class="m-none">Guru & Staff Mutasi</h4>
     <div style="overflow-x: auto;">
@@ -131,9 +135,10 @@
             <?php endforeach ?>
         </tbody>
     </table>
-    <p>Ditemukan <?= $nomorKaryawanMutasi - 1 ?> Data <a href="exportcsv.php?pegawai=Mutasi"><button class="btn-small secondary">Export CSV</button></a></p>
+    <p>Ditemukan <?= $nomorKaryawanMutasi - 1 ?> Data <a href="exportcsv.php?pegawai=Mutasi"><button style="margin-left: 7;" class="btn-small secondary">Export CSV</button></a></p>
     </div>
     <hr>
     <p>Made by <a href="http://danarandco.my.id" target="_blank">dnr</a></p><br>
+    </div>
 </body>
 </html>

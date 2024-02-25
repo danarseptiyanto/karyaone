@@ -14,9 +14,10 @@ $id = $_GET["id"];
 $karyawans = query("SELECT * FROM karyawan WHERE id = $id");
 ?>
 
-<html>
+<html data-theme="dark">
 <head>
     <title>Edit Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.3/css/pico.min.css"
@@ -24,22 +25,30 @@ $karyawans = query("SELECT * FROM karyawan WHERE id = $id");
 </head>
 <body class="container">
     <br>
-    <nav>
-    <ul>
-        <li><strong>Aplikasi</strong></li>
-    </ul>
-    <ul>
-        <li><a href="index.php">Daftar Pegawai</a></li>
-        <li><button><a class="contrast" href="add.php">Tambah</button></a></li>
-    </ul>
+    <nav class="container">
+        <ul>
+            <li><strong><i class="ri-share-forward-box-line"></i> Employee</strong></li>
+        </ul>
+        <ul>
+            <li><a class="contrast" href="index.php"><i class="ri-list-check-2"></i> Pegawai</a></li>
+            <li><a class="contrast" href="add.php"><i class="ri-menu-add-line"></i> Tambah</a></li>
+            <?php
+            if (isset($_SESSION["login"])) {
+                echo "<li><button><a class='contrast' href='signout.php'><i style='padding: 0 3 0 3' class='ri-logout-box-line'></i></button></a></li>";
+            } else {
+                echo "<li><button><a class='contrast' href='signin.php'><i style='padding: 0 3 0 3' class='ri-login-box-line'></i></button></a></li>";
+            }
+            ?>
+        </ul>
     </nav>
 
     <br>
     <h1>Edit Data Pegawai</h1>
     <hr>
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <?php foreach($karyawans as $karyawan) : ?>
         <input type="hidden" name="id" value="<?=$karyawan["id"] ?>">
+        <input type="hidden" name="imgLama" value="<?=$karyawan["img"] ?>">
         <div>
             <label for="addNama">Nama</label>
             <input name="nama" type="text" id="addNama" value="<?=$karyawan["nama"] ?>">
@@ -93,6 +102,12 @@ $karyawans = query("SELECT * FROM karyawan WHERE id = $id");
             <label for="addTglmutasi">Tanggal Mutasi</label>
             <input name="tglmutasi" type="text" id="addTglmutasi" value="<?=$karyawan["tglmutasi"] ?>">
         </div>
+        <div>
+            
+            <label for="addImage">Foto</label>
+            <img src="img/<?=$karyawan["img"] ?>" width="100">
+            <input name="img" type="file" id="addImage" accept="image/*">
+        </div>
         <br>
         <button type="submit" name="submit">Simpan</button>
         <?php endforeach ?>
@@ -102,5 +117,7 @@ $karyawans = query("SELECT * FROM karyawan WHERE id = $id");
             edit($_POST);
         }
     ?>
+    <hr>
+    <p>Made by <a href="http://danarandco.my.id" target="_blank">dnr</a></p><br>
 </body>
 </html>

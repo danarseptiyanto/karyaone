@@ -15,7 +15,7 @@
     $nomor = 1;
 
 ?>
-<html>
+<html data-theme="dark">
 <head>
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
@@ -53,7 +53,7 @@
             <th class="p-table" scope="col">Detail</th>
             </tr>
         </thead>
-        <article>
+        <article style="max-width: 200px;">
             <img src="img/<?= $karyawans[0]["img"] ?>" alt="">
         </article>
         <tbody>

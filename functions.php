@@ -23,7 +23,6 @@ function tambah($data) {
     $jabatan = htmlspecialchars($data["jabatan"]);
     $tl = htmlspecialchars($data["tl"]);
     $email = htmlspecialchars($data["email"]);
-    $img = htmlspecialchars($data["img"]);
     $pegawai = htmlspecialchars($data["pegawai"]);
     $alamat = htmlspecialchars($data["alamat"]);
     $mapel = htmlspecialchars($data["mapel"]);
@@ -32,11 +31,34 @@ function tambah($data) {
     $tglmasuk = htmlspecialchars($data["tglmasuk"]);
     $tglmutasi = htmlspecialchars($data["tglmutasi"]);
 
+    $img = uploadImg(); 
+
     $query = "INSERT INTO karyawan VALUES ('', '$nama', '$jabatan', '$tl', '$email', '$img', '$pegawai', '$alamat', '$mapel', '$ijazah', '$niy', '$tglmasuk', '$tglmutasi')";
    
     if (mysqli_query($conn, $query)) {
             echo "<article>Berhasil Ditambahkan! <a href='index.php'><button>Cek Daftar Karyawan</button></a></article>";
         }
+}
+
+function uploadImg() {
+    $namaFile = $_FILES['img']['name'];
+    $ukuranFile = $_FILES['img']['size'];
+    $tmpFile = $_FILES['img']['tmp_name'];
+    $typeFile = $_FILES['img']['type'];
+    
+    $namaFileBaru = uniqid() . "_" . $namaFile;
+
+    if ($typeFile == 'image/jpeg' || $typeFile == 'image/png' || $typeFile == 'image/gif') {
+        echo "<script>alert('sukses');</script>";
+        move_uploaded_file($tmpFile, 'img/' . $namaFileBaru);
+    }
+    else {
+        echo "<script>alert('yang anda upload bukan gambar!, coba lagi!');</script>";
+        exit();
+    }
+
+    return $namaFileBaru;
+
 }
 
 function deleteById($id) {
@@ -53,7 +75,6 @@ function edit($data) {
     $jabatan = htmlspecialchars($data["jabatan"]);
     $tl = htmlspecialchars($data["tl"]);
     $email = htmlspecialchars($data["email"]);
-    $img = htmlspecialchars($data["img"]);
     $pegawai = htmlspecialchars($data["pegawai"]);
     $alamat = htmlspecialchars($data["alamat"]);
     $mapel = htmlspecialchars($data["mapel"]);
@@ -62,10 +83,18 @@ function edit($data) {
     $tglmasuk = htmlspecialchars($data["tglmasuk"]);
     $tglmutasi = htmlspecialchars($data["tglmutasi"]);
 
+    $imgLama = htmlspecialchars($data["img"]);
+
+    if( $_FILES['img']['error'] === 4 ) {
+		$img = $imgLama;
+	} else {
+		$img = uploadImg();
+	}
+
     $query = "UPDATE karyawan SET nama='$nama', jabatan='$jabatan', tl='$tl', email='$email', img='$img', pegawai='$pegawai', alamat='$alamat', mapel='$mapel', ijazah='$ijazah', niy='$niy', tglmasuk='$tglmasuk', tglmutasi='$tglmutasi' WHERE id='$id'";
     
     if (mysqli_query($conn, $query)) {
-            header("Location: index.php");;
+            header("Location: index.php");
         }
 }
 
