@@ -112,6 +112,7 @@
     </table>
     <a style="margin-right: 10px;" href="edit.php?id=<?= $karyawans[0]["id"] ?>""><button>Ubah</button></a>
     <a href="delete.php?id=<?= $karyawans[0]["id"] ?>"><button class="secondary">Hapus</button></a>
+    <a href="cetak.php?id=<?= $karyawans[0]["id"] ?>"><button class="secondary">Cetak Suket Aktif</button></a>
     
     <br>
     <br>
